@@ -1,0 +1,49 @@
+name: ci
+# run-name: ci-${{ github.ref_name }}
+run-name: Continuos Integração (CI)
+
+on:
+    - workflow_call
+    - workflow_dispatch
+
+jobs:
+    test-and-build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v6
+            
+            - name: Setup Node 18
+              uses: actions/setup-node@v6
+              with:
+                node-version: 18
+                cache: npm
+
+            - name: Install deps
+              run: npm ci
+
+            - name: Check for ESLint errors
+              run: npm run lint
+
+            - name: Build project
+              run: npm run build
+
+            - name: Upload build artifact
+              uses: actions/upload-artifact@v7
+              with:
+                name: build
+                path: build
+
+            - name: Run tests coverage
+              run: npm run test:coverage
+
+            - name: Upload coverage artifact
+              uses: actions/upload-artifact@v7
+              with:
+                name: coverage
+                path: coverage
+            
+            - name: Upload coverage reports to Codecov
+              uses: codecov/codecov-action@v5
+              with:
+                token: ${{ secrets.CODECOV_TOKEN }}
