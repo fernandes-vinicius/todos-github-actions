@@ -1,5 +1,4 @@
 name: ci
-# run-name: ci-${{ github.ref_name }}
 run-name: Continuos Integração (CI)
 
 on:
@@ -7,7 +6,7 @@ on:
     - workflow_dispatch
 
 jobs:
-    test-and-build:
+    ci:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
