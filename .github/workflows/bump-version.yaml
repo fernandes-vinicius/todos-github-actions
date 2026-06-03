@@ -11,7 +11,7 @@ jobs:
         if: "!startsWith(github.event.head_commit.message, 'bump:')"
         runs-on: ubuntu-latest
         steps:
-            - name: Checkout
+            - name: Check out
               uses: actions/checkout@v6
               with:
                   token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
@@ -44,9 +44,10 @@ jobs:
                 | grep -i "x-oauth-scopes"
 
             - name: Release
-              uses: softprops/action-gh-release@v3
+              uses: ncipollo/release-action@v1
               with:
-                body_path: body.md
-                tag_name: ${{ env.REVISION }}
+                tag: v${{ env.REVISION }}
+                bodyFile: "body.md"
+                skipIfReleaseExists: true
               env:
                 GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
