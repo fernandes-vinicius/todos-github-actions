@@ -1,3 +1,9 @@
+## 0.2.2 (2026-06-03)
+
+### Fix
+
+- update token usage in release action configuration
+
 ## 0.2.1 (2026-06-03)
 
 ### Fix
