@@ -1,12 +1,12 @@
-name: ci
-run-name: Continuos Integração (CI)
+name: test-and-build
+run-name: Test and Build
 
 on:
     - workflow_call
     - workflow_dispatch
 
 jobs:
-    ci:
+    test-and-build:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
