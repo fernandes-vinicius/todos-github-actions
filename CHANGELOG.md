@@ -1,3 +1,9 @@
+## 0.2.3 (2026-06-03)
+
+### Fix
+
+- change welcome server message
+
 ## 0.2.2 (2026-06-03)
 
 ### Fix
