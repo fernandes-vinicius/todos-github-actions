@@ -46,4 +46,4 @@ jobs:
                   cd ${{ vars.DROPLET_WORKDIR }}
                   docker compose pull
                   docker compose up -d
-                  docker compose exec todos-github-actions npx prisma migrate deploy
+                  until docker compose exec todos-github-actions npx prisma migrate deploy; do sleep 5; done
