@@ -1,0 +1,36 @@
+services:
+  mysql:
+    image: mysql:8.2.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: todos-github-actions
+    volumes:
+      - mysql:/var/lib/mysql
+    networks:
+      - todos-github-actions
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+  
+  todos-github-actions:
+    image: viniciusfernandes6991/todos-github-actions:latest
+    restart: always
+    ports:
+      - "3333:3333"
+    environment:
+      DATABASE_URL: mysql://root:root@mysql:3306/todos-github-actions
+      NODE_ENV: production
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - todos-github-actions
+
+volumes:
+  mysql:
+
+networks:
+  todos-github-actions:
