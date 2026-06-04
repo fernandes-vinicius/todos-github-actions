@@ -41,4 +41,8 @@ export class InMemoryTodoRepository implements TodoRepository {
     return Promise.resolve();
   }
 
+  update(todo: Todo, id: number): Promise<Todo | null> {
+    throw new Error('Method not implemented.');
+  }
+
 }
