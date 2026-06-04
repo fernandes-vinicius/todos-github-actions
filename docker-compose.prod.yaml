@@ -10,10 +10,11 @@ services:
     networks:
       - todos-github-actions
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot"]
       interval: 10s
       timeout: 5s
-      retries: 10
+      retries: 15
+      start_period: 30s
   
   todos-github-actions:
     image: viniciusfernandes6991/todos-github-actions:latest
