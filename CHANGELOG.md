@@ -1,3 +1,9 @@
+## 0.2.6 (2026-06-04)
+
+### Fix
+
+- update SSH key reference in deploy workflow
+
 ## 0.2.5 (2026-06-04)
 
 ### Fix
