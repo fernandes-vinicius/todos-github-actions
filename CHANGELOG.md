@@ -1,3 +1,9 @@
+## 0.2.7 (2026-06-04)
+
+### Fix
+
+- improve database healthcheck and retry logic in Docker Compose
+
 ## 0.2.6 (2026-06-04)
 
 ### Fix
