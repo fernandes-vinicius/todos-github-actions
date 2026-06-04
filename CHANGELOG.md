@@ -1,3 +1,9 @@
+## 0.2.5 (2026-06-04)
+
+### Fix
+
+- add exclamation mark to server ready message
+
 ## 0.2.4 (2026-06-03)
 
 ### Fix
