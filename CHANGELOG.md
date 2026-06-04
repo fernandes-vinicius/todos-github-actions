@@ -1,3 +1,17 @@
+## 0.3.0 (2026-06-04)
+
+### Feat
+
+- implement setTodoHasDone method in TodoController
+- add setTodoHasDone method to TodoController
+- add SetTodoHasDoneUseCase to UseCaseFactory
+- implement execute method in SetTodoHasDoneUseCase
+- add unit tests for SetTodoHasDoneUseCase
+- add SetTodoHasDoneUseCase implementation
+- implement update method in PrismaTodoRepository
+- implement update method in InMemoryTodoRepository
+- implement update method in TodoRepository interface and its in-memory and Prisma implementations
+
 ## 0.2.7 (2026-06-04)
 
 ### Fix
